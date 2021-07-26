@@ -3,7 +3,7 @@ import cors from "cors";
 import "express-async-errors";
 import "reflect-metadata";
 
-import uploadConfig from "./config/upload";
+import uploadConfig from "../../../config/upload";
 
 import "./database";
 
