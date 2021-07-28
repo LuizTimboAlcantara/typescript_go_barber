@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add tscofing-paths -D
+  /usr/local/bin/node /usr/local/bin/yarn add tsringe
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/luiz/Android/Sdk/emulator:/Users/luiz/Android/Sdk/tools:/Users/luiz/Android/Sdk/tools/bin:/Users/luiz/Android/Sdk/platform-tools:/Users/luiz/Android/Sdk/emulator:/Users/luiz/Android/Sdk/tools:/Users/luiz/Android/Sdk/tools/bin:/Users/luiz/Android/Sdk/platform-tools
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/tscofing-paths: Not found
+  Error: https://registry.yarnpkg.com/tsringe: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
       at Request.emit (events.js:375:28)
@@ -34,8 +34,8 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "build": "tsc",
-      "dev:server": "ts-node-dev  --inspect --transpile-only  --ignore-watch node_modules src/shared/infra/http/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+      "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only  --ignore-watch node_modules src/shared/infra/http/server.ts",
+      "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
     },
     "dependencies": {
       "bcryptjs": "^2.4.3",
@@ -57,6 +57,7 @@ npm manifest:
       "@types/jsonwebtoken": "^8.5.2",
       "@types/multer": "^1.4.6",
       "ts-node-dev": "^1.1.6",
+      "tsconfig-paths": "^3.10.1",
       "typescript": "^4.3.4"
     }
   }
@@ -892,6 +893,13 @@ Lockfile:
     dependencies:
       argparse "^2.0.1"
   
+  json5@^2.2.0:
+    version "2.2.0"
+    resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
+    integrity sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==
+    dependencies:
+      minimist "^1.2.5"
+  
   jsonwebtoken@^8.5.1:
     version "8.5.1"
     resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
@@ -1044,7 +1052,7 @@ Lockfile:
     dependencies:
       brace-expansion "^1.1.7"
   
-  minimist@^1.1.3, minimist@^1.2.5:
+  minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
     version "1.2.5"
     resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
     integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -1707,6 +1715,15 @@ Lockfile:
       make-error "^1.1.1"
       source-map-support "^0.5.17"
       yn "3.1.1"
+  
+  tsconfig-paths@^3.10.1:
+    version "3.10.1"
+    resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.10.1.tgz#79ae67a68c15289fdf5c51cb74f397522d795ed7"
+    integrity sha512-rETidPDgCpltxF7MjBZlAFPUHv5aHH2MymyPvh+vEyWAED4Eb/WeMbsnD/JDr4OKPOA1TssDHgIcpTN5Kh0p6Q==
+    dependencies:
+      json5 "^2.2.0"
+      minimist "^1.2.0"
+      strip-bom "^3.0.0"
   
   tsconfig@^7.0.0:
     version "7.0.0"
